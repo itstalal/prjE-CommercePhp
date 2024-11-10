@@ -1,0 +1,45 @@
+/* Conteneur de base */
+.container {
+    text-align: center;
+    margin-top: 50px;
+    font-family: Arial, sans-serif;
+}
+
+/* Image Not Found */
+.not-found-image {
+    width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Texte 404 principal */
+h1 {
+    font-size: 96px;
+    color: #e0e0e0;
+    margin: 0;
+}
+
+/* Message de sous-titre */
+p {
+    color: #888;
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* Style du bouton */
+.btn-go-home {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #5a67d8; /* Couleur de fond */
+    color: #fff; /* Couleur du texte */
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+/* Effet de survol */
+.btn-go-home:hover {
+    background-color: #4c51bf;
+}
