@@ -5,16 +5,31 @@ $password = "Talal123";
 
 try {
     // Connexion à la base de données
-    $conn = new PDO("mysql:host=$servername;dbname=projetfins4", $username, $password);
+    $conn = new PDO("mysql:host=$servername;dbname=ProjetPhpS4", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Récupérer tous les produits avec leurs images
-    $stmt = $conn->query("
-        SELECT produit.* , categoryproduits.nom AS categorie, produit_images.image_url
+    // Récupérer le terme de recherche
+    $searchTerm = isset($_GET['search']) ? trim($_GET['search']) : '';
+
+    // Construire la requête SQL avec ou sans filtre de recherche
+    $sql = "
+        SELECT produit.*, categoryproduits.nom AS categorie, produit_images.image_url
         FROM produit
         LEFT JOIN categoryproduits ON produit.category_id = categoryproduits.id
         LEFT JOIN produit_images ON produit.id = produit_images.produit_id
-    ");
+    ";
+
+    if (!empty($searchTerm)) {
+        $sql .= " WHERE produit.nom LIKE :searchTerm OR categoryproduits.nom LIKE :searchTerm";
+    }
+
+    $stmt = $conn->prepare($sql);
+
+    if (!empty($searchTerm)) {
+        $stmt->bindValue(':searchTerm', '%' . $searchTerm . '%', PDO::PARAM_STR);
+    }
+
+    $stmt->execute();
     $produits = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     echo "Erreur : " . $e->getMessage();
@@ -29,6 +44,18 @@ try {
 <div class="table-responsive" style="margin-top: 100px;">
     <div class="d-flex justify-content-between align-items-center mb-3 w-75 mx-auto">
         <h1 class="text-center fs-2 fw-bold">Liste de tous les produits</h1>
+        <form method="GET" class="d-flex w-1/2">
+            <input 
+                type="text" 
+                name="search" 
+                placeholder="Rechercher un produit ou une catégorie..." 
+                value="<?= htmlspecialchars($searchTerm); ?>" 
+                class="form-control me-2"
+            >
+            <button type="submit" class="btn btn-primary">
+                <i class="bi bi-search"></i> 
+            </button>
+        </form>
         <div>
 
             <a href="<?= $router->generate('admin'); ?>" class="btn btn-primary">

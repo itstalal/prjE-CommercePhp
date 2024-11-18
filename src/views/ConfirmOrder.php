@@ -8,14 +8,14 @@ if (!isset($_SESSION['utilisateur']['id'])) {
 $servername = "localhost";
 $username = "Talal123";
 $password = "Talal123";
-$dbname = "projetfins4";
+$dbname = "ProjetPhpS4";
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     $utilisateur_id = $_SESSION['utilisateur']['id'];
-    
+
     $stmt = $conn->prepare("SELECT panier.id, produit.id AS produit_id, produit.nom, panier.quantite, produit.nouveau_prix 
                             FROM panier 
                             JOIN produit ON panier.produit_id = produit.id 
@@ -58,10 +58,8 @@ try {
     $stmt->bindParam(':utilisateur_id', $utilisateur_id);
     $stmt->execute();
 
-    header('Location: /checkout');
+    echo '<section> valider </section>';
     exit();
-
 } catch (Exception $e) {
     echo "Erreur : " . $e->getMessage();
 }
-?>

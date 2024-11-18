@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = "Talal123";
 
     try {
-        $conn = new PDO("mysql:host=$servername;dbname=projetfins4", $username, $password);
+        $conn = new PDO("mysql:host=$servername;dbname=ProjetPhpS4", $username, $password);
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $nom = htmlspecialchars($_POST['nom']);
@@ -85,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <select id="category" name="category_id" required
                 class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                 <?php
-                $conn = new PDO("mysql:host=localhost;dbname=projetfins4", "Talal123", "Talal123");
+                $conn = new PDO("mysql:host=localhost;dbname=ProjetPhpS4", "Talal123", "Talal123");
                 $query = $conn->query("SELECT id, nom FROM categoryproduits");
                 while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
                     echo "<option value='" . $row['id'] . "'>" . $row['nom'] . "</option>";

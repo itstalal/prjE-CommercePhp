@@ -16,7 +16,7 @@ if (isset($_POST['produit_id']) && isset($_POST['quantite'])) {
     $servername = "localhost";
     $username = "Talal123";
     $password = "Talal123";
-    $dbname = "projetfins4";
+    $dbname = "ProjetPhpS4";
 
     try {
         $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);

@@ -7,7 +7,7 @@ if (isset($_SESSION['utilisateur']['courriel']) && $_SESSION['utilisateur']['rol
 $servername = "localhost";
 $username = "Talal123";
 $password = "Talal123";
-$dbname = "projetfins4";
+$dbname = "ProjetPhpS4";
 $error = "";
 
 try {

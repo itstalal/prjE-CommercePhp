@@ -7,7 +7,7 @@ if (!isset($_SESSION['utilisateur']['id'])) {
 $servername = "localhost";
 $username = "Talal123";
 $password = "Talal123";
-$dbname = "projetfins4";
+$dbname = "ProjetPhpS4";
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);

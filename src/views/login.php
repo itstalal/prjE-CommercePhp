@@ -6,7 +6,7 @@ $error = "";
 
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=projetfins4", $username, $password);
+    $conn = new PDO("mysql:host=$servername;dbname=ProjetPhpS4", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     if(isset($_SESSION['utilisateur'])){

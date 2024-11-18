@@ -3,7 +3,8 @@
         "symfony/var-dumper": "^7.1"
     },
     "require": {
-        "altorouter/altorouter": "^2.0"
+        "altorouter/altorouter": "^2.0",
+        "stripe/stripe-php": "^16.2"
     },
     "autoload": {
         "psr-4": {

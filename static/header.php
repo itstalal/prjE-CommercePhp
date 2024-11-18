@@ -4,7 +4,7 @@
 $servername = "localhost";
 $username = "Talal123";
 $password = "Talal123";
-$dbname = "projetfins4";
+$dbname = "ProjetPhpS4";
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -50,7 +50,7 @@ try {
         <nav>
             <a href="<?= $router->generate('accueil'); ?>">Accueil</a>
             <a href="<?= $router->generate('produit') ?>">Produits</a>
-            <a href="<?= $router->generate('article', ['slug' => 'mon-voyage', 'id' => 60]); ?>">Categorie</a>
+            <a href="<?= $router->generate('produit') ?>">Categorie</a>
             <a href="<?= $router->generate('contacter') ?>">Contact</a>
         </nav>
         <div class="menu-right">
