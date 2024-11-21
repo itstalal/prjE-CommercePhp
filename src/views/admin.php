@@ -40,7 +40,7 @@ if (isset($_SESSION['utilisateur']['courriel']) && $_SESSION['utilisateur']['rol
                 <img src="assets/images/order_managment.jpg" alt="Montre Rolex" class="product-image " />
                 <p class="product-name">Gérer les Commandes</p>
                 <div>
-                    <a href="" class="btn btn-primary fs-3"><i class="bi bi-eye"></i></a>
+                    <a href="<?= $router->generate('manag_order'); ?>" class="btn btn-primary fs-3"><i class="bi bi-eye"></i></a>
                 </div>
 
             </div>

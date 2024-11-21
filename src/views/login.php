@@ -79,7 +79,7 @@ try {
                 </div>
             </div>
             <div class="card-footer text-body-secondary">
-                <a href="#" class="text-decoration-none text-primary">Mot de passe oublié?</a>
+                <a href="<?= $router->generate('forgot_password'); ?>" class="text-decoration-none text-primary">Mot de passe oublié?</a>
             </div>
         </form>
     </div>

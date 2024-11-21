@@ -18,6 +18,10 @@ class ComposerStaticInit14b259b952ff223e46f158e45513084a
             'Symfony\\Component\\VarDumper\\' => 28,
             'Stripe\\' => 7,
         ),
+        'P' => 
+        array (
+            'PHPMailer\\PHPMailer\\' => 20,
+        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -36,6 +40,10 @@ class ComposerStaticInit14b259b952ff223e46f158e45513084a
         'Stripe\\' => 
         array (
             0 => __DIR__ . '/..' . '/stripe/stripe-php/lib',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'App\\' => 
         array (

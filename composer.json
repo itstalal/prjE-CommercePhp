@@ -4,7 +4,8 @@
     },
     "require": {
         "altorouter/altorouter": "^2.0",
-        "stripe/stripe-php": "^16.2"
+        "stripe/stripe-php": "^16.2",
+        "phpmailer/phpmailer": "^6.9"
     },
     "autoload": {
         "psr-4": {

@@ -29,11 +29,23 @@ $router->map('GET|POST', '/delete-user-[i:id]', 'DeleteUser', 'DeleteUser');
 $router->map('GET|POST', '/add-Product', 'addProduct','addProduct');
 $router->map('GET|POST','/delete-product-[i:id]','DeleteProduct','DeleteProduct');
 $router->map('GET|POST','/update-product-[i:id]','UpdateProduct','UpdateProduct');
+$router->map('GET|POST', '/admin-OrderManagment', 'manag_order', 'manag_order');
+$router->map('GET|POST', '/admin-Add-Order', 'addOrder', 'add_order');
+$router->map('GET|POST', '/admin-save-order', 'save_order', 'save_order');
+
+
+
 //fin admin
 $router->map('GET|POST','/ajouter-panier','AjouterPanier','AjouterPanier');
 $router->map('GET|POST','/Delete-item-[i:id]','DeleteItemCart','DeleteItemCart');
 $router->map('GET|POST','/Confirm-Order','ConfirmOrder','ConfirmOrder');
 $router->map('GET|POST','/checkout','checkout','checkout');
+$router->map('GET|POST','/infoUser','infoUser','infoUser');
+// $router->map('GET', '/verify/[a:token]', 'UserController', 'verify-account');
+$router->map('GET|POST', '/reset-password', 'forgot_password', 'forgot_password');
+$router->map('GET|POST', '/reset-password-[a:token]', 'reset_password', 'reset_password');
+
+
 
 // route match
 $match = $router->match();

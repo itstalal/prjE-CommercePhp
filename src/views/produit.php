@@ -49,7 +49,7 @@ try {
 }
 ?>
 
-<section class="new-collections" style="margin-top: 100px;">
+<section class="new-collections">
     <h1>NOUVELLES COLLECTIONS</h1>
     <hr />
 
