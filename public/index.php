@@ -31,7 +31,6 @@ $router->map('GET|POST','/delete-product-[i:id]','DeleteProduct','DeleteProduct'
 $router->map('GET|POST','/update-product-[i:id]','UpdateProduct','UpdateProduct');
 $router->map('GET|POST', '/admin-OrderManagment', 'manag_order', 'manag_order');
 $router->map('GET|POST', '/admin-Add-Order', 'addOrder', 'add_order');
-$router->map('GET|POST', '/admin-save-order', 'save_order', 'save_order');
 
 
 
