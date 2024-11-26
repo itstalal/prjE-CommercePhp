@@ -24,25 +24,27 @@ $router->map('GET', '/admin', 'admin', 'admin');
 $router->map('GET', '/admin-UserManagment', 'manag_user', 'manag_user');
 $router->map('GET', '/admin-ProductManagment', 'manag_product', 'manag_product');
 // le name article === update-user c'est juste le nom article est enregistre comme chemin de updateUser alors on peut pas le changer
-$router->map('GET|POST', '/update-user:[i:id]', 'UpdateUser', 'article'); 
+$router->map('GET|POST', '/update-user:[i:id]', 'UpdateUser', 'article');
 $router->map('GET|POST', '/delete-user-[i:id]', 'DeleteUser', 'DeleteUser');
-$router->map('GET|POST', '/add-Product', 'addProduct','addProduct');
-$router->map('GET|POST','/delete-product-[i:id]','DeleteProduct','DeleteProduct');
-$router->map('GET|POST','/update-product-[i:id]','UpdateProduct','UpdateProduct');
+$router->map('GET|POST', '/add-Product', 'addProduct', 'addProduct');
+$router->map('GET|POST', '/delete-product-[i:id]', 'DeleteProduct', 'DeleteProduct');
+$router->map('GET|POST', '/update-product-[i:id]', 'UpdateProduct', 'UpdateProduct');
 $router->map('GET|POST', '/admin-OrderManagment', 'manag_order', 'manag_order');
 $router->map('GET|POST', '/admin-Add-Order', 'addOrder', 'add_order');
 
-
-
 //fin admin
-$router->map('GET|POST','/ajouter-panier','AjouterPanier','AjouterPanier');
-$router->map('GET|POST','/Delete-item-[i:id]','DeleteItemCart','DeleteItemCart');
-$router->map('GET|POST','/Confirm-Order','ConfirmOrder','ConfirmOrder');
-$router->map('GET|POST','/checkout','checkout','checkout');
-$router->map('GET|POST','/infoUser','infoUser','infoUser');
-// $router->map('GET', '/verify/[a:token]', 'UserController', 'verify-account');
+$router->map('GET|POST', '/ajouter-panier', 'AjouterPanier', 'AjouterPanier');
+$router->map('GET|POST', '/Delete-item-[i:id]', 'DeleteItemCart', 'DeleteItemCart');
+$router->map('GET|POST', '/Confirm-Order', 'ConfirmOrder', 'ConfirmOrder');
+$router->map('GET|POST', '/checkout', 'checkout', 'checkout');
+$router->map('GET|POST', '/infoUser', 'infoUser', 'infoUser');
 $router->map('GET|POST', '/reset-password', 'forgot_password', 'forgot_password');
 $router->map('GET|POST', '/reset-password-[a:token]', 'reset_password', 'reset_password');
+$router->map('GET|POST', '/google-callback', 'google-login', 'google-callback');
+$router->map('GET|POST','/Parfums','getParfums','getParfums');
+$router->map('GET|POST','/Montres','getWatches','getWatches');
+
+
 
 
 

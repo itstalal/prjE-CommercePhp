@@ -41,6 +41,11 @@ try {
             $stmt->bindParam(':id', $id);
             $stmt->execute();
             $success = "Utilisateur mis à jour avec succès !";
+            echo "<script>
+            setTimeout(function() {
+                window.location.href = '/admin-UserManagment';
+            }, 1000); 
+        </script>";
         }
     }
 } catch (PDOException $e) {

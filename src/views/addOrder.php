@@ -18,6 +18,7 @@ try {
         $prenom = $_POST['utilisateur_prenom'];
         $courriel = $_POST['utilisateur_courriel'];
         $produitsSelectionnes = $_POST['produits'];
+        $token=  bin2hex(random_bytes(16)); 
 
         if (!empty($nom) && !empty($prenom) && !empty($courriel) && !empty($produitsSelectionnes)) {
             $total = 0;
@@ -34,8 +35,8 @@ try {
             }
 
             try {
-                $stmt = $conn->prepare("INSERT INTO utilisateurs (nom, prenom, courriel) VALUES (:nom, :prenom, :courriel)");
-                $stmt->execute([':nom' => $nom, ':prenom' => $prenom, ':courriel' => $courriel]);
+                $stmt = $conn->prepare("INSERT INTO utilisateurs (nom, prenom, courriel,role,token) VALUES (:nom, :prenom, :courriel, 'client', :token)");
+                $stmt->execute([':nom' => $nom, ':prenom' => $prenom, ':courriel' => $courriel , ':token' =>$token]);
                 $utilisateurId = $conn->lastInsertId();
 
                 $stmt = $conn->prepare("INSERT INTO commandes (utilisateur_id, date_commande, total, statut) 

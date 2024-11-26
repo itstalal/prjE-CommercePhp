@@ -53,7 +53,7 @@
             <div class="p-6 text-center">
                 <h3 class="text-2xl font-semibold text-gray-800">Parfums</h3>
                 <p class="mt-2 text-gray-600">Découvrez notre sélection exclusive de parfums.</p>
-                <a href="#parfums" class="mt-4 inline-block  btn btn-secondary">Voir Plus</a>
+                <a href="<?= $router->generate('getParfums'); ?>" class="mt-4 inline-block  btn btn-secondary">Voir Plus</a>
             </div>
         </div>
     </div>
@@ -65,7 +65,7 @@
             <div class="p-6 text-center">
                 <h3 class="text-2xl font-semibold text-gray-800">Montres</h3>
                 <p class="mt-2 text-gray-600">Explorez nos modèles de montres de luxe.</p>
-                <a href="#montres" class="mt-4 inline-block btn btn-secondary">Voir Plus</a>
+                <a href="<?= $router->generate('getWatches'); ?>" class="mt-4 inline-block btn btn-secondary">Voir Plus</a>
             </div>
         </div>
     </div>
@@ -115,10 +115,10 @@
     const swiper = new Swiper('.swiper-container', {
         loop: true,
         autoplay: {
-            delay: 5000,
+            delay: 2000,
             disableOnInteraction: false,
         },
-        effect: 'fade', //slide fluid
+        effect: 'fade', 
         fadeEffect: {
             crossFade: true,
         },

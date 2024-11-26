@@ -87,7 +87,6 @@ try {
                             <div class="item-price-old">$<?= htmlspecialchars($produit['ancien_prix']); ?></div>
                         </div>
 
-                        <!--  ajout de produit au panier -->
                         <form method="POST" action="<?= $router->generate('AjouterPanier'); ?>">
                             <input type="hidden" name="produit_id" value="<?= htmlspecialchars($produit['id']); ?>">
                             <input type="hidden" name="quantite" value="1">

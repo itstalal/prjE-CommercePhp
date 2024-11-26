@@ -6,10 +6,10 @@ if (isset($_POST['add_user'])) {
     $email = $_POST['email'];
     $password = $_POST['mot_de_passe'];
     $c_password = $_POST['c_mot_de_passe'];
-    $token = bin2hex(random_bytes(16)); // Générer un token unique
+    $token = bin2hex(random_bytes(16));
 
     if (!empty($prenom) && !empty($nom) && !empty($tele) && !empty($email) && !empty($password) && !empty($c_password)) {
-        
+
         if ($password === $c_password) {
             try {
                 $password = password_hash($password, PASSWORD_DEFAULT);
@@ -17,7 +17,7 @@ if (isset($_POST['add_user'])) {
                 $requete->execute([$prenom, $nom, $tele, $email, $password, 'client', $token]);
                 header('Location: /login');
             } catch (PDOException $e) {
-                if ($e->getCode() == 23000) { 
+                if ($e->getCode() == 23000) {
                     $error = "Ce courriel est déjà utilisé. Veuillez en choisir un autre.";
                 } else {
                     $error = "Erreur lors de l'inscription : " . $e->getMessage();
@@ -41,13 +41,15 @@ if (isset($_POST['add_user'])) {
 <section style="overflow: hidden; margin-top: 50px;">
     <div class="card text-center">
         <div class="card-header b-2">
-            <a href="<?= $router->generate('login') ?>" class="text-decoration-none text-primary">Vous avez déjà un compte ?</a> 
+            <a href="<?= $router->generate('login') ?>" class="text-decoration-none text-primary">Vous avez déjà un compte ?</a>
         </div>
 
-        <form  method="post">
+        <form method="post">
             <div class="card-body" style="width: 500px; height: auto;">
                 <h3 class=" fs-3 text-start b-3"><b>S'inscrire</b></h3>
-                <h4 class="text-white text-small text-center bg-danger"><?php if($error){ echo $error; } ?></h4>
+                <h4 class="text-white text-small text-center bg-danger"><?php if ($error) {
+                                                                            echo $error;
+                                                                        } ?></h4>
                 <div class="mb-3">
                     <label class="fs-6 text-start d-block">Prenom<b class="text-danger">*</b></label>
                     <input type="text" class="form-control w-50" placeholder="Prenom" name="prenom" required>
@@ -62,7 +64,7 @@ if (isset($_POST['add_user'])) {
                 </div>
                 <div class="mb-3">
                     <label class="fs-6 text-start d-block">Adresse e-mail<b class="text-danger">*</b></label>
-                    <input type="email" class="form-control w-50"  placeholder="nom@exemple.com" name="email" required>
+                    <input type="email" class="form-control w-50" placeholder="nom@exemple.com" name="email" required>
                 </div>
                 <div class="mb-4">
                     <label class="fs-6 text-start d-block">Mot de passe<b class="text-danger">*</b></label>
@@ -73,13 +75,13 @@ if (isset($_POST['add_user'])) {
                     <input type="password" class="form-control w-50" placeholder="Confirmer votre mot de passe" name="c_mot_de_passe" required>
                 </div>
                 <div class="text-start d-block ">
-                <input type="submit" class="btn btn-primary" name="add_user" value="S'inscrire">
+                    <input type="submit" class="btn btn-primary" name="add_user" value="S'inscrire">
                 </div>
             </div>
         </form>
+        <div class="text-center my-4">
+            <a href="/google-callback" class="btn btn-danger">Connectez-vous avec Google</a>
+        </div>
+
     </div>
 </section>
-
-
-
-
