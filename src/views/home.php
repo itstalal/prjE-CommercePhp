@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <div class="mx-auto max-w-3xl text-center py-32 sm:py-48 lg:py-56 text-white">
+    <div class="mx-auto max-w-3xl text-center py-32 sm:py-48 lg:py-56 text-white" style="margin-top: -165px;">
         <h1 class="text-5xl font-extrabold tracking-tight sm:text-7xl">
             <span class="block text-transparent sm:text-gray-400 distortion-text" data-distort="NOUVEAUX MODÈLES 2024">
                 NOUVEAUX MODÈLES 2024

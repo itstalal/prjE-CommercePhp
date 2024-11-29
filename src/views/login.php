@@ -9,7 +9,7 @@ try {
     $conn = new PDO("mysql:host=$servername;dbname=ProjetPhpS4", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    if(isset($_SESSION['utilisateur'])){
+    if (isset($_SESSION['utilisateur'])) {
         header('Location: /');
     }
 
@@ -26,7 +26,7 @@ try {
                 if ($utilisateur) {
                     if (password_verify($password, $utilisateur['mot_de_passe'])) {
                         unset($utilisateur['mot_de_passe']);
-                        $_SESSION['utilisateur']=$utilisateur;
+                        $_SESSION['utilisateur'] = $utilisateur;
                         $_SESSION['id'] = $utilisateur['id'];
                         $_SESSION['email'] = $utilisateur['courriel'];
                         header('Location: /');
@@ -77,13 +77,15 @@ try {
                 <div class="text-start d-block">
                     <input type="submit" class="btn btn-primary" value="Se connecter" name="connexion">
                 </div>
+
             </div>
+            <!-- <div class="text-start d-block">
+                <a href="/google-callback" class="btn btn-danger">Connectez-vous avec Google</a>
+            </div> -->
             <div class="card-footer text-body-secondary">
                 <a href="<?= $router->generate('forgot_password'); ?>" class="text-decoration-none text-primary">Mot de passe oublié?</a>
             </div>
+
         </form>
     </div>
 </section>
-
-
-

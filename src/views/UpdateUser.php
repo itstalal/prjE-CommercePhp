@@ -57,49 +57,52 @@ try {
 <div class="container mx-auto my-10" style="margin-top: 100px;">
     <div class="max-w-lg mx-auto bg-white shadow-lg rounded-lg p-6">
         <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Mettre à jour l'utilisateur</h2>
-        
+
         <?php if ($error): ?>
             <div class="alert alert-danger text-center mb-4"><?= htmlspecialchars($error); ?></div>
         <?php elseif ($success): ?>
             <div class="alert alert-success text-center mb-4"><?= htmlspecialchars($success); ?></div>
         <?php endif; ?>
-        
+
         <?php if (!empty($utilisateur)) : ?>
             <form method="POST" class="space-y-4">
                 <div class="mb-3">
                     <label class="block text-gray-700 ">Nom:</label>
-                    <input type="text" name="nom" value="<?= htmlspecialchars($utilisateur['nom']); ?>" 
-                           class="form-control px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                    <input type="text" name="nom" value="<?= htmlspecialchars($utilisateur['nom']); ?>"
+                        class="form-control px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" required>
                 </div>
-                
+
                 <div class="mb-3">
                     <label class="block text-gray-700 ">Prénom:</label>
-                    <input type="text" name="prenom" value="<?= htmlspecialchars($utilisateur['prenom']); ?>" 
-                           class="form-control px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                    <input type="text" name="prenom" value="<?= htmlspecialchars($utilisateur['prenom']); ?>"
+                        class="form-control px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" required>
                 </div>
-                
+
                 <div class="mb-3">
                     <label class="block text-gray-700 ">Email:</label>
-                    <input type="email" name="courriel" value="<?= htmlspecialchars($utilisateur['courriel']); ?>" 
-                           class="form-control px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                    <input type="email" name="courriel" value="<?= htmlspecialchars($utilisateur['courriel']); ?>"
+                        class="form-control px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" required>
                 </div>
-                
+
                 <div class="mb-3">
                     <label class="block text-gray-700 ">Numéro:</label>
-                    <input type="text" name="numero_telephone" value="<?= htmlspecialchars($utilisateur['numero_telephone']); ?>" 
-                           class="form-control px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                    <input type="text" name="numero_telephone" value="<?= htmlspecialchars($utilisateur['numero_telephone']); ?>"
+                        class="form-control px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400" required>
                 </div>
-                
+
                 <div class="mb-3">
                     <label class="block text-gray-700 ">Rôle:</label>
-                    <input type="text" name="role" value="<?= htmlspecialchars($utilisateur['role']); ?>" 
-                           class="form-control px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-                            required <?php if($utilisateur['role']=='admin'){ echo 'readonly'; }  ?>>
+                    <input type="text" name="role" value="<?= htmlspecialchars($utilisateur['role']); ?>"
+                        class="form-control px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        required <?php if ($utilisateur['role'] == 'admin') {
+                                        echo 'readonly';
+                                    }  ?>>
                 </div>
-                
+
                 <div class="text-center mt-6">
-                    <a href="<?= $router->generate('manag_user'); ?>" class="btn btn-danger w-5  py-2 font-semibold">Annulé</a>
-                    <button type="submit" class="btn btn-primary w-5  py-2 font-semibold">Mettre à jour</button>
+                    <a href="<?= $router->generate('manag_user'); ?>" class="btn btn-danger w-full py-2 font-semibold">Annulé</a>
+                    <button type="submit" class="btn btn-primary w-full py-2 font-semibold mt-6">Mettre à jour</button>
+
                 </div>
             </form>
         <?php else : ?>

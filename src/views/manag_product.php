@@ -45,22 +45,17 @@ try {
     <div class="d-flex justify-content-between align-items-center mb-3 w-75 mx-auto">
         <h1 class="text-center fs-2 fw-bold">Liste de tous les produits</h1>
         <form method="GET" class="d-flex w-1/2">
-            <input 
-                type="text" 
-                name="search" 
-                placeholder="Rechercher un produit ou une catégorie..." 
-                value="<?= htmlspecialchars($searchTerm); ?>" 
-                class="form-control me-2"
-            >
+            <input
+                type="text"
+                name="search"
+                placeholder="Rechercher un produit ou une catégorie..."
+                value="<?= htmlspecialchars($searchTerm); ?>"
+                class="form-control me-2">
             <button type="submit" class="btn btn-primary">
-                <i class="bi bi-search"></i> 
+                <i class="bi bi-search"></i>
             </button>
         </form>
         <div>
-
-            <a href="<?= $router->generate('admin'); ?>" class="btn btn-primary">
-                Administrateur
-            </a>
             <a href="<?= $router->generate('addProduct'); ?>" class="btn btn-success">
                 Ajouter un produit
             </a>
@@ -98,8 +93,8 @@ try {
                             <?php endif; ?>
                         </td>
                         <td class="text-center">
-                            <a class="btn btn-primary" href="<?= $router->generate('UpdateProduct',['id'=>htmlspecialchars($produit['id'])]); ?>"><i class="bi bi-pencil-square"></i> Modifier</a>
-                            <a class="btn btn-danger" href="<?= $router->generate('DeleteProduct',['id'=>htmlspecialchars($produit['id'])]); ?>"><i class="bi bi-trash3-fill"></i> Supprimer</a>
+                            <a class="btn btn-primary" href="<?= $router->generate('UpdateProduct', ['id' => htmlspecialchars($produit['id'])]); ?>"><i class="bi bi-pencil-square"></i> Modifier</a>
+                            <a class="btn btn-danger" href="<?= $router->generate('DeleteProduct', ['id' => htmlspecialchars($produit['id'])]); ?>"><i class="bi bi-trash3-fill"></i> Supprimer</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

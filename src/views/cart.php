@@ -54,6 +54,8 @@ try {
                         <p>TPS (5%) : <strong><?php echo number_format($TPS, 2, ',', ' ') . ' $'; ?></strong></p>
                         <p>TVQ (9.975%) : <strong><?php echo number_format($TVQ, 2, ',', ' ') . ' $'; ?></strong></p>
                         <p class="h5 font-weight-bold">Total : <?php echo number_format($total, 2, ',', ' ') . ' $'; ?></p>
+                        <p class="h5 font-weight-bold">Rabais pour chaque produit : <?php echo number_format(15, 0, ',', ' ') . '%'; ?></p>
+
                         <form action="/Confirm-Order" method="POST" class="mt-4">
                             <button type="submit" class="btn btn-primary w-100">Valider la Commande</button>
                         </form>

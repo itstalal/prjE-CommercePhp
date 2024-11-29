@@ -79,9 +79,7 @@ if (isset($_POST['add_user'])) {
                 </div>
             </div>
         </form>
-        <div class="text-center my-4">
-            <a href="/google-callback" class="btn btn-danger">Connectez-vous avec Google</a>
-        </div>
+       
 
     </div>
 </section>

@@ -49,56 +49,60 @@ try {
 }
 ?>
 
-<section class="new-collections">
-    <h1>NOUVELLES COLLECTIONS</h1>
-    <hr />
+<body class="bg-gray-100">
 
-    <!-- Barre de recherche avec suggestions -->
-    <form method="GET" class="search-form" style="position: relative;">
-        <input type="text" name="search" placeholder="Rechercher un produit ou une catégorie..." value="<?= htmlspecialchars($searchTerm); ?>" autocomplete="off" />
-        <button type="submit" class="btn btn-primary">Rechercher</button>
+<section class="new-collections py-10">
+    <div class="container mx-auto px-4">
+        <h1 class="text-4xl font-extrabold text-center text-gray-800">NOUVELLES COLLECTIONS</h1>
+        <hr class="my-6 border-gray-300" />
 
-        <?php if (!empty($suggestions)) : ?>
-            <div class="suggestions-box">
-                <?php foreach ($suggestions as $suggestion) : ?>
-                    <div class="suggestion-item">
-                        <a href="?search=<?= urlencode($suggestion); ?>"><?= htmlspecialchars($suggestion); ?></a>
+        <!-- Barre de recherche  -->
+        <form method="GET" class="relative flex justify-center mb-8">
+            <input type="text" name="search" class="w-full md:w-1/2 p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Rechercher un produit ou une catégorie..." value="<?= htmlspecialchars($searchTerm); ?>" autocomplete="off" />
+            <button type="submit" class="ml-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-5 rounded-lg">Rechercher</button>
+            
+            <?php if (!empty($suggestions)) : ?>
+                <div class="absolute top-full mt-2 w-full md:w-1/2 bg-white shadow-lg rounded-lg z-10">
+                    <?php foreach ($suggestions as $suggestion) : ?>
+                        <a href="?search=<?= urlencode($suggestion); ?>" class="block px-4 py-2 hover:bg-blue-100"><?= htmlspecialchars($suggestion); ?></a>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+        </form>
+
+        <!-- Section des cartes produits -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <?php if (!empty($produits)) : ?>
+                <?php foreach ($produits as $produit) : ?>
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                        <a href="<?= $router->generate('produitsDetails', ['id'=>htmlspecialchars($produit['id'])]); ?>">
+                            <?php if (!empty($produit['image_url'])): ?>
+                                <img src="<?= htmlspecialchars($produit['image_url']); ?>" alt="Image de <?= htmlspecialchars($produit['nom']); ?>" class="w-full h-48 object-cover" />
+                            <?php else: ?>
+                                <div class="flex items-center justify-center h-48 bg-gray-200 text-gray-500">Pas d'image</div>
+                            <?php endif; ?>
+                            <div class="p-4">
+                                <p class="text-lg font-semibold"><?= htmlspecialchars($produit['nom']); ?></p>
+                                <div class="flex justify-between items-center mt-2">
+                                    <span class="text-xl text-blue-500 font-bold">$<?= htmlspecialchars($produit['nouveau_prix']); ?></span>
+                                    <span class="line-through text-gray-500">$<?= htmlspecialchars($produit['ancien_prix']); ?></span>
+                                </div>
+                                <form method="POST" action="<?= $router->generate('AjouterPanier'); ?>" class="mt-4">
+                                    <input type="hidden" name="produit_id" value="<?= htmlspecialchars($produit['id']); ?>">
+                                    <input type="hidden" name="quantite" value="1">
+                                    <button type="submit" class="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg flex items-center justify-center">
+                                        <i class="bi bi-bag-plus mr-2"></i> Ajouter au panier
+                                    </button>
+                                </form>
+                            </div>
+                        </a>
                     </div>
                 <?php endforeach; ?>
-            </div>
-        <?php endif; ?>
-    </form>
-
-    <!-- section des cartes produits -->
-    <div class="product-grid">
-        <?php if (!empty($produits)) : ?>
-            <?php foreach ($produits as $produit) : ?>
-                <div class="product-card">
-                    <a href="#">
-                        <?php if (!empty($produit['image_url'])): ?>
-                            <img src="<?= htmlspecialchars($produit['image_url']); ?>" alt="Image de <?= htmlspecialchars($produit['nom']); ?>" class="product-image" />
-                        <?php else: ?>
-                            <p>Pas d'image</p>
-                        <?php endif; ?>
-
-                        <p class="product-name"><?= htmlspecialchars($produit['nom']); ?></p>
-                        <div class="item-prices">
-                            <div class="item-price-new">$<?= htmlspecialchars($produit['nouveau_prix']); ?></div>
-                            <div class="item-price-old">$<?= htmlspecialchars($produit['ancien_prix']); ?></div>
-                        </div>
-
-                        <form method="POST" action="<?= $router->generate('AjouterPanier'); ?>">
-                            <input type="hidden" name="produit_id" value="<?= htmlspecialchars($produit['id']); ?>">
-                            <input type="hidden" name="quantite" value="1">
-                            <button type="submit" class="btn btn-warning fs-3">
-                                <i class="bi bi-bag-plus"></i>
-                            </button>
-                        </form>
-                    </a>
-                </div>
-            <?php endforeach; ?>
-        <?php else : ?>
-            <h1 class="text-center text-danger">Aucun produit trouvé.</h1>
-        <?php endif; ?>
+            <?php else : ?>
+                <h1 class="col-span-full text-center text-2xl text-red-600 font-semibold">Aucun produit trouvé.</h1>
+            <?php endif; ?>
+        </div>
     </div>
 </section>
+
+</body>

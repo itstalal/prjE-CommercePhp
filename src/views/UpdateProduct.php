@@ -73,11 +73,11 @@ try {
 
             $success = "Produit mis à jour avec succès !";
             
-            echo "<script>
-    setTimeout(function() {
-        window.location.href = '/admin-ProductManagment';
-    }, 1000); 
-</script>";
+                        echo "<script>
+                setTimeout(function() {
+                    window.location.href = '/admin-ProductManagment';
+                }, 1000); 
+            </script>";
         }
     }
 } catch (PDOException $e) {
@@ -142,8 +142,8 @@ try {
                 </div>
 
                 <div class="text-center mt-6">
-                    <a href="#" class="btn btn-danger w-5 py-2 font-semibold">Annuler</a>
-                    <button type="submit" class="btn btn-primary w-5 py-2 font-semibold">Mettre à jour</button>
+                    <button type="submit" class="btn btn-primary w-full py-2 font-semibold ">Mettre à jour</button>
+                    <a href="#" class="btn btn-danger w-full py-2 font-semibold mt-6">Annuler</a>
                 </div>
             </form>
         <?php else : ?>

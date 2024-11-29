@@ -39,10 +39,12 @@ $router->map('GET|POST', '/Confirm-Order', 'ConfirmOrder', 'ConfirmOrder');
 $router->map('GET|POST', '/checkout', 'checkout', 'checkout');
 $router->map('GET|POST', '/infoUser', 'infoUser', 'infoUser');
 $router->map('GET|POST', '/reset-password', 'forgot_password', 'forgot_password');
-$router->map('GET|POST', '/reset-password-[a:token]', 'reset_password', 'reset_password');
+$router->map('GET|POST', '/reset_password', 'reset_password', 'reset_password');
 $router->map('GET|POST', '/google-callback', 'google-login', 'google-callback');
 $router->map('GET|POST','/Parfums','getParfums','getParfums');
 $router->map('GET|POST','/Montres','getWatches','getWatches');
+$router->map('GET|POST', '/details-product-[i:id]', 'produitsDetails', 'produitsDetails');
+
 
 
 
