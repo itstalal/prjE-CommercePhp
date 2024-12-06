@@ -77,9 +77,11 @@ if (isset($_POST['add_user'])) {
                 <div class="text-start d-block ">
                     <input type="submit" class="btn btn-primary" name="add_user" value="S'inscrire">
                 </div>
+                <div class="text-center my-4">
+                    <a href="/google-callback" class="btn btn-danger">Connectez-vous avec Google</a>
+                </div>
             </div>
         </form>
-       
 
     </div>
 </section>

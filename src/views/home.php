@@ -48,28 +48,28 @@
 <div class="row justify-content-center gap-5 my-12 mt-4">
     <!-- Carte 1: Parfum -->
     <div class="col-12 col-md-5 col-lg-4">
-        <div class="bg-white shadow-2xl rounded-2xl overflow-hidden hover:scale-105 transition transform duration-300">
-            <img src="assets/images/perfum.webp" alt="Parfum" class="w-full h-56 object-cover">
+        <div class="bg-white shadow-2xl rounded-2xl overflow-hidden hover:scale-105 transition transform duration-300 w-full sm:w-80 md:w-96 lg:w-1/3">
+            <img style="transition: transform 0.3s ease; object-fit: contain;" src="assets/images/perfum.webp" alt="Parfum" class="w-full h-auto">
             <div class="p-6 text-center">
                 <h3 class="text-2xl font-semibold text-gray-800">Parfums</h3>
                 <p class="mt-2 text-gray-600">Découvrez notre sélection exclusive de parfums.</p>
-                <a href="<?= $router->generate('getParfums'); ?>" class="mt-4 inline-block  btn btn-secondary">Voir Plus</a>
+                <a href="<?= $router->generate('getParfums'); ?>" class="mt-4 inline-block btn btn-secondary">Voir Plus</a>
             </div>
         </div>
     </div>
 
     <!-- Carte 2: Montre -->
     <div class="col-12 col-md-5 col-lg-4">
-        <div class="bg-white shadow-2xl rounded-2xl overflow-hidden hover:scale-105 transition transform duration-300">
-            <img src="assets/images/background_watch.webp" alt="Montre" class="w-full h-56 object-cover">
-            <div class="p-6 text-center">
-                <h3 class="text-2xl font-semibold text-gray-800">Montres</h3>
-                <p class="mt-2 text-gray-600">Explorez nos modèles de montres de luxe.</p>
-                <a href="<?= $router->generate('getWatches'); ?>" class="mt-4 inline-block btn btn-secondary">Voir Plus</a>
-            </div>
+    <div class="bg-white shadow-2xl rounded-2xl overflow-hidden hover:scale-105 transition transform duration-300 w-full sm:w-80 md:w-96 lg:w-1/3">
+        <img style="transition: transform 0.3s ease; object-fit: contain;" src="assets/images/background_watch.webp" alt="Montre" class="w-full h-auto">
+        <div class="p-6 text-center">
+            <h3 class="text-2xl font-semibold text-gray-800">Montres</h3>
+            <p class="mt-2 text-gray-600">Explorez nos modèles de montres de luxe.</p>
+            <a href="<?= $router->generate('getWatches'); ?>" class="mt-4 inline-block btn btn-secondary">Voir Plus</a>
         </div>
     </div>
 </div>
+
 
 <!-- Carrousel -->
 <div class="container my-16" style="margin-top: 50px;">

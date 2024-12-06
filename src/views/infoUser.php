@@ -87,7 +87,6 @@ try {
                                 <th>Date</th>
                                 <th>Total</th>
                                 <th>Statut</th>
-                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -97,9 +96,7 @@ try {
                                     <td><?= htmlspecialchars($commande['date_commande']) ?></td>
                                     <td><?= number_format($commande['total'], 2) ?> $</td>
                                     <td><?= htmlspecialchars($commande['statut']) ?></td>
-                                    <td>
-                                        <a href="details_commande.php?id=<?= $commande['id'] ?>" class="btn btn-primary btn-sm">Voir Détails</a>
-                                    </td>
+                                    
                                 </tr>
                             <?php endforeach; ?>
                         </tbody>

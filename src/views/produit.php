@@ -52,6 +52,7 @@ try {
 <body class="bg-gray-100">
 
 <section class="new-collections py-10">
+    <img src="assets/images/banner_product.webp" alt="" style="margin-top:100px;">
     <div class="container mx-auto px-4">
         <h1 class="text-4xl font-extrabold text-center text-gray-800">NOUVELLES COLLECTIONS</h1>
         <hr class="my-6 border-gray-300" />
